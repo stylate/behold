@@ -1,9 +1,9 @@
 var express = require("express");
-var terms = require("./assets/diseases.json");
+var terms = require("./assets/json/diseases.json");
 var app = express();
 
 app.listen(3000, () => {
-    console.log("Server running on port 3000");
+    console.log("Server running on port 3000.");
 });
 
 app.get("/diseases", (req, res, next) => {
@@ -12,3 +12,5 @@ app.get("/diseases", (req, res, next) => {
     };
     res.json(d);
 })
+
+
