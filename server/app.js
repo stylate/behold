@@ -3,8 +3,8 @@ var terms = require("./assets/diseases.json");
 var studies = require("./assets/studies.json");
 var app = express();
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000.");
+app.listen(8000, () => {
+    console.log("Server running on port 8000.");
 });
 
 app.use('/images', express.static('images'));
