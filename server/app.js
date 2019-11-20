@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var terms = require("./assets/diseases.json");
 var studies = require("./assets/studies.json");
 var app = express();
@@ -8,10 +9,8 @@ app.listen(8000, () => {
 });
 
 app.use('/images', express.static('images'));
-
-app.get("/images", (req, res, next) => {
-    res.json(studies);
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get("/diseases", (req, res, next) => {
     let d = {
@@ -19,6 +18,19 @@ app.get("/diseases", (req, res, next) => {
     };
     res.json(d);
 });
+
+app.get("/images", (req, res, next) => {
+    res.json(studies);
+});
+
+app.post("/images:id", (req, res, next) => {
+    const data = req.body;
+    res.send({
+        diseases: data.diseases,
+        timestamp: data.timestamp,
+        uid: data.uid
+    });
+})
 
 // do post request after building front-end
 
