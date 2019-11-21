@@ -7,7 +7,7 @@ import { Report, Gallery } from './components';
 
 const App = () => {
   const diseases = useSelector(state => state.reportReducer.options);
-  const images = useSelector(state => state.imageReducer.images);
+  const imageState = useSelector(state => state.imageReducer);
   const dispatch = useDispatch();
   useEffect( () => {
     const fetchData = async () => {
@@ -17,19 +17,27 @@ const App = () => {
 
     const fetchGallery = async () => {
       const response = await actions.fetchGallery();
+      const initImage = await actions.selectImage(response.images[0]);
       dispatch(response);
+      dispatch(initImage);
     }
     
     fetchData();
+    fetchGallery();
   }, []);
 
+  // actions to pass along to components
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
-  const reportProps = { diseases, toggle }
+  const selectImage = (image) => dispatch(actions.selectImage(image));
+
+  const reportProps = { diseases, toggle };
+  const galleryProps = { imageState, selectImage };
 
   return (
     <div className="App">
       <header className="App-header">
         <Report {...reportProps}/>
+        <Gallery {...galleryProps}/>
       </header>
     </div>
   );

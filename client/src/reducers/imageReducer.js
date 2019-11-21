@@ -8,7 +8,7 @@ const imageReducer = (state = initialState, action) => {
         case 'LOADED':
             return {...state, images: action.images};
         case 'SELECT':
-            return {...state, selected: action.image};
+            return {...state, selected: action.selected};
         default:
             return state;
     }

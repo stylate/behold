@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const domain = `http://localhost:8000`;
+
 const fetchInitial = async () => {
-    const result = await axios(`http://localhost:8000/diseases`);
+    const result = await axios(domain + `/diseases`);
     return setData(result.data.diseases);
 };
 
@@ -33,17 +35,17 @@ const sendData = async (data) => {
 // load gallery
 
 const fetchGallery = async () => {
-    const images_json = await axios(`http://localhost:8000/images`); // get image json data
+    const images_json = await axios(domain + `/images`); // get image json data
     return ({
         type: "LOADED",
-        images_json
+        images: images_json.data
     })
 };
 
 const selectImage = async (image) => {
     return ({
         type: 'SELECT',
-        image
+        selected: image
     })
 };
 
