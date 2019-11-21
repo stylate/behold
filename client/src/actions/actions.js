@@ -42,7 +42,7 @@ const fetchGallery = async () => {
     })
 };
 
-const selectImage = async (image) => {
+const selectImage = (image) => {
     return ({
         type: 'SELECT',
         selected: image
