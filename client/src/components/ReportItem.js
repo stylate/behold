@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from 'semantic-ui-react'
 
 const Text = styled.p``;
 const Wrapper = styled.div``;
-const Toggle = styled.button``;
 
 const ReportItem = (props) => {
     const { item, toggle } = props;
-    console.log("access reportitem")
     console.log("item: ", item)
+    const toggleItem = () => {
+        toggle(item.id)
+    };
     return (
         <Wrapper>
             <Text>{item.id}</Text>
-            <Toggle onClick={toggle}>{item.exists}</Toggle>
+            <Button onClick={toggleItem}>{item.exists}</Button>
         </Wrapper>
     );
 }

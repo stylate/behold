@@ -13,9 +13,13 @@ const App = () => {
       const response = await actions.fetchInitial();
       dispatch(response);
     }
+
+    const fetchGallery = async () => {
+      const response = await actions.fetchGallery();
+      dispatch(response);
+    }
     
     fetchData();
-    // dispatch(actions.fetchGallery()); // pre-load images; not complete yet
   }, []);
 
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));

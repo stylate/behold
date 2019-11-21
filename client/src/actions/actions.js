@@ -5,10 +5,12 @@ const fetchInitial = async () => {
     return setData(result.data.diseases);
 };
 
-const toggleDisease = (disease) => ({
-    type: 'TOGGLE',
-    id: disease.id
-});
+const toggleDisease = (disease) => {
+    return {
+        type: 'TOGGLE',
+        id: disease
+    }
+}
 
 const setData = (data) => {
     const objects = data.map((disease) => {

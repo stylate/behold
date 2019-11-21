@@ -10,8 +10,6 @@ const Submit = styled.div``;
 
 const Report = (props) => {
     const { diseases, toggle } = props;
-    console.log("accessing report.")
-    console.log("diseases: ", diseases)
     return (
         <Container>
             <List>
