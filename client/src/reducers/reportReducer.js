@@ -3,7 +3,7 @@ const initialState = {
     options: []
 }
 
-const toggle = (state = initialState, action) => {
+const reportReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'INITIAL':
             return { ...state, options: action.payload };
@@ -32,4 +32,4 @@ const toggle = (state = initialState, action) => {
     }
 }
 
-export default toggle;
+export default reportReducer;

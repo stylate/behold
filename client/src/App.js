@@ -6,7 +6,8 @@ import actions from './actions/actions';
 import { Report, Gallery } from './components';
 
 const App = () => {
-  const diseases = useSelector(state => state.toggle.options);
+  const diseases = useSelector(state => state.reportReducer.options);
+  const images = useSelector(state => state.imageReducer.images);
   const dispatch = useDispatch();
   useEffect( () => {
     const fetchData = async () => {
@@ -24,6 +25,7 @@ const App = () => {
 
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
   const reportProps = { diseases, toggle }
+
   return (
     <div className="App">
       <header className="App-header">

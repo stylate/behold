@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import toggle from './toggle';
+import reportReducer from './reportReducer';
 import submit from './submit';
-import image from './image';
+import imageReducer from './imageReducer';
 
 export default combineReducers({
-    toggle,
-    submit,
-    image
+    reportReducer,
+    imageReducer,
 });

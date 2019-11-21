@@ -3,7 +3,7 @@ const initialState = {
     selected: {}
 }
 
-const image = (state = initialState, action) => {
+const imageReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOADED':
             return {...state, images: action.images};
@@ -14,4 +14,4 @@ const image = (state = initialState, action) => {
     }
 }
 
-export default image;
+export default imageReducer;
