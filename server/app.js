@@ -9,7 +9,7 @@ app.listen(8000, () => {
     console.log("Server running on port 8000.");
 });
 
-app.use(cors);
+app.use(cors());
 app.use('/images', express.static('images'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))

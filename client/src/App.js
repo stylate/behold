@@ -20,6 +20,7 @@ const App = () => {
   }, []);
 
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
+  console.log("diseases: ", diseases);
   const reportProps = { diseases, toggle }
   return (
     <div className="App">
