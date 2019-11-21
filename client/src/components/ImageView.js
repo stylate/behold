@@ -8,15 +8,28 @@ const domain = `http://localhost:8000`;
 const Wrapper = styled.div``;
 const ImageBox = styled.div``;
 const MetaBox = styled.div``;
+const List = styled.ul``;
+const ListElement = styled.li``;
 
 const ImageView = (props) => {
     const { item } = props;
     const absolutePath = domain + '/images/' + item.Filename;
-    const meta = item.metadata;
+    const meta = item.Metadata;
+    console.log("meta: ", meta);
     return (
         <Wrapper>
-            <ImageBox></ImageBox>
-            <MetaBox></MetaBox>
+            <ImageBox>
+                <Image src={absolutePath} />
+            </ImageBox>
+            <MetaBox>
+                <List>
+                    {meta &&
+                        Object.keys(meta).map((key, i) => {
+                            return <ListElement>{key} {meta[key]}</ListElement>
+                        })
+                    }
+                </List>
+            </MetaBox>
         </Wrapper>
     )
 };
