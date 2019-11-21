@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 import actions from './actions/actions';
 
@@ -10,7 +9,13 @@ const App = () => {
   const diseases = useSelector(state => state.options);
   const dispatch = useDispatch();
   useEffect( () => {
-    dispatch(actions.fetchInitial());
+    const fetchData = async () => {
+      const response = await actions.fetchInitial();
+      console.log("response: ", response);
+      dispatch(response);
+    }
+    
+    fetchData();
     // dispatch(actions.fetchGallery()); // pre-load images; not complete yet
   }, []);
 
@@ -19,7 +24,6 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Report {...reportProps}/>
       </header>
     </div>

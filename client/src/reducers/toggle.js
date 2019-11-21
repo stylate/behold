@@ -10,13 +10,23 @@ const toggle = (state = initialState, action) => {
         case 'TOGGLE':
             return {
                 ...state,
-                exists: disease.id === action.id ? !disease.exists : disease.exists
+                options: state.options.map( (item) => {
+                    return {
+                        ...item,
+                        exists: item.id === action.id ? !item.exists : item.exists
+                    }
+                })
             }
         case 'RESET':
-            return {
-                ...state,
-                exists: disease.id === 'Normal' ? true : false
-            }
+                return {
+                    ...state,
+                    options: state.options.map( (item) => {
+                        return {
+                            ...item,
+                            exists: item.id === 'Normal' ? true : false
+                        }
+                    })
+                }
         default:
             return state;
     }

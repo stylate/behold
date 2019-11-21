@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReportItem from './ReportItem';
 
 const Container = styled.div``;
 
@@ -17,10 +18,6 @@ const Report = (props) => {
                         return <ReportItem item={disease.id} toggle={toggle}/>;
                     })}
             </List>
-
-            <Submit>
-                <button onClick={submit}>Submit Report</button>
-            </Submit>
         </Container>
     )
 }
