@@ -10,12 +10,14 @@ const Submit = styled.div``;
 
 const Report = (props) => {
     const { diseases, toggle } = props;
+    console.log("accessing report.")
+    console.log("diseases: ", diseases)
     return (
         <Container>
             <List>
                 {diseases &&
                     diseases.map((disease) => {
-                        return <ReportItem item={disease.id} toggle={toggle}/>;
+                        return <ReportItem item={disease} toggle={toggle}/>;
                     })}
             </List>
         </Container>

@@ -6,12 +6,11 @@ import actions from './actions/actions';
 import Report from './components/Report';
 
 const App = () => {
-  const diseases = useSelector(state => state.options);
+  const diseases = useSelector(state => state.toggle.options);
   const dispatch = useDispatch();
   useEffect( () => {
     const fetchData = async () => {
       const response = await actions.fetchInitial();
-      console.log("response: ", response);
       dispatch(response);
     }
     
@@ -20,7 +19,6 @@ const App = () => {
   }, []);
 
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
-  console.log("diseases: ", diseases);
   const reportProps = { diseases, toggle }
   return (
     <div className="App">

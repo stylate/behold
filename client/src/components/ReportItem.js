@@ -7,10 +7,12 @@ const Toggle = styled.button``;
 
 const ReportItem = (props) => {
     const { item, toggle } = props;
+    console.log("access reportitem")
+    console.log("item: ", item)
     return (
         <Wrapper>
-            <Text>{item.name}</Text>
-            <Toggle onClick={toggle}/>
+            <Text>{item.id}</Text>
+            <Toggle onClick={toggle}>{item.exists}</Toggle>
         </Wrapper>
     );
 }
