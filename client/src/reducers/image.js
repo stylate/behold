@@ -1,11 +1,14 @@
 const initialState = {
-    image: {}
+    images: [],
+    selected: {}
 }
 
 const image = (state = initialState, action) => {
     switch (action.type) {
+        case 'LOADED':
+            return {...state, images: action.images};
         case 'SELECT':
-            return {...state, image: action.payload}
+            return {...state, selected: action.image};
         default:
             return state;
     }

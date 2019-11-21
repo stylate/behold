@@ -10,7 +10,7 @@ const ReportItem = (props) => {
     return (
         <Wrapper>
             <Text>{item.name}</Text>
-            <Toggle>{toggle}</Toggle>
+            <Toggle onClick={toggle}/>
         </Wrapper>
     );
 }
