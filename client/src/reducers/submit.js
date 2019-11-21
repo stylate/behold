@@ -7,7 +7,7 @@ const initialState = {
 const submit = (state = initialState, action) => {
     switch (action.type) {
         case "SUBMIT":
-            return action.payload;
+            return Object.assign({}, state, action.payload);
         default:
             return state;
     }

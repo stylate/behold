@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import appReducer from './appReducer';
+import toggle from './toggle';
 import submit from './submit';
+import image from './image';
 
 export default combineReducers({
-    appReducer,
-    submit
+    toggle,
+    submit,
+    image
 });

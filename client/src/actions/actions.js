@@ -18,8 +18,13 @@ const setData = (data) => {
     })
 }
 
+const sendData = async (data) => {
+
+}
+
 const actions = {
-    fetchInitial
+    fetchInitial,
+    sendData
 };
 
 export default actions; 
