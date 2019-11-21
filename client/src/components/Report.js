@@ -8,7 +8,7 @@ const List = styled.div``;
 
 const Submit = styled.div``;
 
-const Report = (props) => {
+export const Report = (props) => {
     const { diseases, toggle } = props;
     return (
         <Container>
@@ -21,5 +21,3 @@ const Report = (props) => {
         </Container>
     )
 }
-
-export default Report;

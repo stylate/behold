@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import actions from './actions/actions';
 
-import Report from './components/Report';
+import { Report, Gallery } from './components';
 
 const App = () => {
   const diseases = useSelector(state => state.toggle.options);

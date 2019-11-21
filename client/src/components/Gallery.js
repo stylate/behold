@@ -4,12 +4,10 @@ import Thumbnail from './Thumbnail';
 
 const Wrapper = styled.div``;
 
-const Gallery = (props) => {
+export const Gallery = (props) => {
     return (
         <Wrapper>
             <Thumbnail />
         </Wrapper>
     )
-}
-
-export default Gallery;
+};
