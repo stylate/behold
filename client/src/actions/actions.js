@@ -15,6 +15,10 @@ const toggleDisease = (disease) => {
 }
 
 const setData = (data) => {
+    const obj = Object.assign({}, 
+        data.map(item => (
+            {[item]: item === 'Normal' ? true : false}))
+    );
     const objects = data.map((disease) => {
         return {
             id: disease,
@@ -58,13 +62,20 @@ const selectImage = (imageIndex) => {
     })
 };
 
+const nextImage = () => {
+    return ({
+        type: "INCREMENT"
+    })
+};
+
 const actions = {
     fetchInitial,
     sendData,
     toggleDisease,
     resetToggles,
     fetchGallery,
-    selectImage
+    selectImage,
+    nextImage
 };
 
 export default actions; 

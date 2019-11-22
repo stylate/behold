@@ -18,9 +18,9 @@ const Header = styled.h2`
     font-size: 17px;
 `;
 
-const List = styled.div``;
-
-const Submit = styled.div``;
+const Submit = styled.div`
+    margin-top: 20px;
+`;
 
 // image + select state used for submit button
 
@@ -31,14 +31,12 @@ export const Report = (props) => {
         <Container>
             {imageName &&
                 <Header>Report for {imageName.Filename}</Header>}
-            <List>
-                {diseases &&
-                    diseases.map((disease) => {
-                        return <ReportItem item={disease} toggle={toggle}/>;
-                    })}
-            </List>
+            {diseases &&
+                diseases.map((disease) => {
+                    return <ReportItem item={disease} toggle={toggle}/>;
+            })}
             <Submit>
-
+                <Button onClick={resetToggles}>Submit Report</Button>
             </Submit>
         </Container>
     )

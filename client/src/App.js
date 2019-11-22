@@ -36,6 +36,10 @@ const App = () => {
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
   const selectImage = (image) => dispatch(actions.selectImage(image));
   const resetToggles = () => dispatch(actions.resetToggles());
+  const nextImage = () => dispatch(actions.nextImage());
+  const sendData = (data) => dispatch(actions.sendData(data));
+
+  const compActions = { toggle, selectImage, resetToggles, nextImage, sendData };
 
   const reportProps = { diseases, imageState, toggle, resetToggles };
   const galleryProps = { imageState, selectImage, resetToggles };
