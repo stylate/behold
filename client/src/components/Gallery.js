@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Thumbnail from './Thumbnail';
 import ImageView from './ImageView';
 
+import { Grid } from 'semantic-ui-react';
+
 const Thumbnails = styled.div``;
 const Wrapper = styled.div``;
 const MainImage = styled.div``;
@@ -12,18 +14,22 @@ export const Gallery = (props) => {
     const images = imageState.images;
     const selectedImage = images[imageState.selected];
     return (
-        <Wrapper>
-            <Thumbnails>
+        <Grid columns={2}>
+            <Grid.Column width={3}>
                 {images &&
                     Object.keys(images).map((key, index) => {
-                        return <Thumbnail index={key} item={images[key]} select={selectImage} reset={resetToggles}/>;
+                        return (
+                            <Grid.Row>
+                                <Thumbnail index={key} item={images[key]} select={selectImage} reset={resetToggles}/>
+                            </Grid.Row>
+                        );
                 })}
-            </Thumbnails>
-            <MainImage>
+            </Grid.Column>
+            <Grid.Column>
                 {selectedImage &&
                     <ImageView item={selectedImage} />
                 }
-            </MainImage>
-        </Wrapper>
+            </Grid.Column>
+        </Grid>
     )
 };

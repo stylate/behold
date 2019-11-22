@@ -4,7 +4,10 @@ import { Image } from 'semantic-ui-react';
 
 const domain = `http://localhost:8000`;
 
-const ImageBox = styled.div``;
+const ImageBox = styled.div`
+    margin-top: 6%;
+    margin-left: 15%;
+`;
 
 const Thumbnail = (props) => {
     const { index, item, select, reset } = props;

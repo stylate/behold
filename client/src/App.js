@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './App.css';
 import actions from './actions/actions';
 
 import { Grid } from 'semantic-ui-react';
 import { Report, Gallery } from './components';
+
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  width: 150%;
+  max-width: 150vw;
+  margin-top: 3%;
+`;
 
 const App = () => {
   const diseases = useSelector(state => state.reportReducer.options);
@@ -30,15 +37,15 @@ const App = () => {
   const selectImage = (image) => dispatch(actions.selectImage(image));
   const resetToggles = () => dispatch(actions.resetToggles());
 
-  const reportProps = { diseases, toggle, resetToggles };
+  const reportProps = { diseases, imageState, toggle, resetToggles };
   const galleryProps = { imageState, selectImage, resetToggles };
   return (
-    <div className="App">
+    <Wrapper>
       <Grid>
         <Grid.Column key={1} width={8}><Gallery {...galleryProps}/></Grid.Column>
         <Grid.Column key={2} width={5}><Report {...reportProps}/></Grid.Column>
       </Grid>
-    </div>
+    </Wrapper>
   );
 }
 
