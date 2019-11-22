@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import actions from './actions/actions';
 
+import { Grid } from 'semantic-ui-react';
 import { Report, Gallery } from './components';
 
 const App = () => {
@@ -33,10 +34,10 @@ const App = () => {
   const galleryProps = { imageState, selectImage, resetToggles };
   return (
     <div className="App">
-      <header className="App-header">
-        <Report {...reportProps}/>
-        <Gallery {...galleryProps}/>
-      </header>
+      <Grid>
+        <Grid.Column key={1} width={8}><Gallery {...galleryProps}/></Grid.Column>
+        <Grid.Column key={2} width={5}><Report {...reportProps}/></Grid.Column>
+      </Grid>
     </div>
   );
 }

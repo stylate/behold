@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'semantic-ui-react'
+import { Checkbox, Grid } from 'semantic-ui-react'
 
 const Text = styled.p``;
 const Wrapper = styled.div``;
@@ -11,10 +11,10 @@ const ReportItem = (props) => {
         toggle(item.id)
     };
     return (
-        <Wrapper>
-            <Text>{item.id}</Text>
-            <Button onClick={toggleItem}>{item.exists}</Button>
-        </Wrapper>
+        <Grid>
+            <Grid.Column key={1} width={5}><Text>{item.id}</Text></Grid.Column>
+            <Grid.Column key={2}><Checkbox toggle onChange={toggleItem}>{item.exists}</Checkbox></Grid.Column>
+        </Grid>
     );
 }
 
