@@ -28,6 +28,7 @@ const setData = (data) => {
 };
 
 const resetToggles = () => {
+    console.log("resetting...");
     return ({
         type: "RESET"
     })

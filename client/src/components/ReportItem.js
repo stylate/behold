@@ -12,7 +12,7 @@ const ReportItem = (props) => {
     };
     return (
         <Grid>
-            <Grid.Column key={1} width={3}><Text>{item.id}</Text></Grid.Column>
+            <Grid.Column key={1} width={9}><Text>{item.id}</Text></Grid.Column>
             <Grid.Column key={2}><Checkbox toggle defaultChecked={item.exists} onChange={toggleItem}/></Grid.Column>
         </Grid>
     );

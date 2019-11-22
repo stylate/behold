@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 const Container = styled.div`
     margin-top: 5%;
     margin-left: -16%;
-    width: 100%;
+    width: 40%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,6 @@ const Submit = styled.div``;
 export const Report = (props) => {
     const { diseases, imageState, toggle, resetToggles } = props;
     const imageName = imageState.images[imageState.selected];
-    console.log("fileName: ", imageName)
     return (
         <Container>
             {imageName &&
