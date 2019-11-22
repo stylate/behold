@@ -14,7 +14,7 @@ export const Gallery = (props) => {
     const images = imageState.images;
     const selectedImage = images[imageState.selected];
     return (
-        <Grid columns={2}>
+        <Grid columns={2} relaxed="very">
             <Grid.Column width={3}>
                 {images &&
                     Object.keys(images).map((key, index) => {

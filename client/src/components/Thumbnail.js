@@ -5,8 +5,8 @@ import { Image } from 'semantic-ui-react';
 const domain = `http://localhost:8000`;
 
 const ImageBox = styled.div`
-    margin-top: 6%;
-    margin-left: 15%;
+    margin-top: 30%;
+    padding-left: 30%;
 `;
 
 const Thumbnail = (props) => {
@@ -18,7 +18,7 @@ const Thumbnail = (props) => {
     };
     return (
         <ImageBox>
-            <Image src={absolutePath} onClick={selectImage} size='small' />
+            <Image src={absolutePath} onClick={selectImage} size='medium' />
         </ImageBox>
     )
 }
