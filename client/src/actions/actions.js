@@ -18,7 +18,7 @@ const setData = (data) => {
     const objects = data.map((disease) => {
         return {
             id: disease,
-            exists: false
+            exists: disease === 'Normal' ? true : false
         };
     })
     return ({

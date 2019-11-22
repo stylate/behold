@@ -5,7 +5,7 @@ import { Grid } from 'semantic-ui-react';
 const domain = `http://localhost:8000`;
 
 const Wrapper = styled.div` 
-    margin-left: 20%;
+    margin-left: 10%;
 `;
 
 const MetaBox = styled.div`
@@ -37,7 +37,7 @@ const ListElement = styled.li`
 
 const Image = styled.img`
     height: 100%;
-    width: 150%;
+    width: 125%;
 `;
 
 const ImageView = (props) => {
@@ -46,21 +46,21 @@ const ImageView = (props) => {
     const meta = item.Metadata;
     return (
         <Wrapper>
+            <Grid.Row>
+                <Image src={absolutePath} />
+            </Grid.Row>
+            <MetaBox>
                 <Grid.Row>
-                    <Image src={absolutePath} />
+                    <Header>Metadata</Header>
+                    <List>
+                        {meta &&
+                            Object.keys(meta).map((key, i) => {
+                                return <ListElement>{key}: {meta[key]}</ListElement>
+                            })
+                        }
+                    </List>
                 </Grid.Row>
-                <MetaBox>
-                    <Grid.Row>
-                        <Header>Metadata</Header>
-                        <List>
-                            {meta &&
-                                Object.keys(meta).map((key, i) => {
-                                    return <ListElement>{key}: {meta[key]}</ListElement>
-                                })
-                            }
-                        </List>
-                    </Grid.Row>
-                </MetaBox>
+            </MetaBox>
         </Wrapper>
     )
 };
