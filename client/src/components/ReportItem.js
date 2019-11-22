@@ -7,7 +7,6 @@ const Wrapper = styled.div``;
 
 const ReportItem = (props) => {
     const { item, toggle } = props;
-    console.log("item: ", item)
     const toggleItem = () => {
         toggle(item.id)
     };

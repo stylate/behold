@@ -15,7 +15,6 @@ const ImageView = (props) => {
     const { item } = props;
     const absolutePath = domain + '/images/' + item.Filename;
     const meta = item.Metadata;
-    console.log("meta: ", meta);
     return (
         <Wrapper>
             <ImageBox>

@@ -10,18 +10,19 @@ const MainImage = styled.div``;
 export const Gallery = (props) => {
     const { imageState, selectImage } = props;
     const images = imageState.images;
-    const selectedImage = imageState.selected;
-    console.log("images: ", images);
+    const selectedImage = images[imageState.selected];
     return (
         <Wrapper>
             <Thumbnails>
                 {images &&
-                    images.map((image) => {
-                        return <Thumbnail item={image} select={selectImage}/>;
+                    Object.keys(images).map((key, index) => {
+                        return <Thumbnail index={key} item={images[key]} select={selectImage}/>;
                 })}
             </Thumbnails>
             <MainImage>
-                <ImageView item={selectedImage} />
+                {selectedImage &&
+                    <ImageView item={selectedImage} />
+                }
             </MainImage>
         </Wrapper>
     )

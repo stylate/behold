@@ -27,6 +27,14 @@ const setData = (data) => {
     })
 };
 
+const resetToggles = () => {
+    return (
+        {
+            type: "RESET"
+        }
+    )
+}
+
 // submit
 const sendData = async (data) => {
 
@@ -36,16 +44,18 @@ const sendData = async (data) => {
 
 const fetchGallery = async () => {
     const images_json = await axios(domain + `/images`); // get image json data
+    console.log("images_json: ", images_json);
     return ({
         type: "LOADED",
-        images: images_json.data
+        images: Object.assign({}, images_json.data),
+        selected: 0
     })
 };
 
-const selectImage = (image) => {
+const selectImage = (imageIndex) => {
     return ({
         type: 'SELECT',
-        selected: image
+        selected: imageIndex
     })
 };
 
@@ -53,6 +63,7 @@ const actions = {
     fetchInitial,
     sendData,
     toggleDisease,
+    resetToggles,
     fetchGallery,
     selectImage
 };

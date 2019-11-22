@@ -17,9 +17,7 @@ const App = () => {
 
     const fetchGallery = async () => {
       const response = await actions.fetchGallery();
-      const initImage = await actions.selectImage(response.images[0]);
       dispatch(response);
-      dispatch(initImage);
     }
     
     fetchData();
@@ -29,10 +27,10 @@ const App = () => {
   // actions to pass along to components
   const toggle = (disease) => dispatch(actions.toggleDisease(disease));
   const selectImage = (image) => dispatch(actions.selectImage(image));
+  const resetToggles = () => dispatch(actions.resetToggles());
 
   const reportProps = { diseases, toggle };
   const galleryProps = { imageState, selectImage };
-
   return (
     <div className="App">
       <header className="App-header">
