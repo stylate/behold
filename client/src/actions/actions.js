@@ -28,11 +28,9 @@ const setData = (data) => {
 };
 
 const resetToggles = () => {
-    return (
-        {
-            type: "RESET"
-        }
-    )
+    return ({
+        type: "RESET"
+    })
 }
 
 // submit

@@ -12,7 +12,7 @@ const Submit = styled.div``;
 // image + select state used for submit button
 
 export const Report = (props) => {
-    const { diseases, toggle} = props;
+    const { diseases, toggle, resetToggles } = props;
     return (
         <Container>
             <List>

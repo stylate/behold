@@ -7,10 +7,11 @@ const domain = `http://localhost:8000`;
 const ImageBox = styled.div``;
 
 const Thumbnail = (props) => {
-    const { index, item, select } = props;
+    const { index, item, select, reset } = props;
     const absolutePath = domain + '/images/' + item.Filename;
     const selectImage = () => {
         select(index);
+        reset();
     };
     return (
         <ImageBox>

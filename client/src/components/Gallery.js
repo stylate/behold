@@ -8,7 +8,7 @@ const Wrapper = styled.div``;
 const MainImage = styled.div``;
 
 export const Gallery = (props) => {
-    const { imageState, selectImage } = props;
+    const { imageState, selectImage, resetToggles } = props;
     const images = imageState.images;
     const selectedImage = images[imageState.selected];
     return (
@@ -16,7 +16,7 @@ export const Gallery = (props) => {
             <Thumbnails>
                 {images &&
                     Object.keys(images).map((key, index) => {
-                        return <Thumbnail index={key} item={images[key]} select={selectImage}/>;
+                        return <Thumbnail index={key} item={images[key]} select={selectImage} reset={resetToggles}/>;
                 })}
             </Thumbnails>
             <MainImage>

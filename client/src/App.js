@@ -29,8 +29,8 @@ const App = () => {
   const selectImage = (image) => dispatch(actions.selectImage(image));
   const resetToggles = () => dispatch(actions.resetToggles());
 
-  const reportProps = { diseases, toggle };
-  const galleryProps = { imageState, selectImage };
+  const reportProps = { diseases, toggle, resetToggles };
+  const galleryProps = { imageState, selectImage, resetToggles };
   return (
     <div className="App">
       <header className="App-header">
