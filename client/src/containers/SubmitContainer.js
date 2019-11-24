@@ -12,11 +12,12 @@ export const SubmitContainer = (props) => {
     const { resetToggles } = props;
     const dispatch = useDispatch();
     const currentState = useSelector(state => state.submitReducer);
+
     const sendData = async (data) => dispatch(await SubmitActions.sendData(data));
-    const resetData = () => dispatch(SubmitActions.resetData());
     const increment = () => dispatch(GalleryActions.nextImage());
-    console.log("currentState: ", currentState);
-    const submitProps = { currentState, resetToggles, sendData, resetData, increment }
+
+    console.log("currentState container: ", currentState);
+    const submitProps = { currentState, resetToggles, sendData, increment }
     return (
         <SubmitButton>
             <Submit {...submitProps} />

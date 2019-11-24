@@ -6,11 +6,10 @@ const initialState = {
 
 const submitReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'RESET':
-            return initialState;
         case 'INIT':
+            console.log("initial state: ", initialState);
             return {
-                ...state,
+                ...initialState,
                 uid: action.uid
             }
         case 'SUBMIT':

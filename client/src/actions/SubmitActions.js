@@ -2,13 +2,8 @@ import axios from 'axios';
 
 const domain = `http://localhost:8000`;
 
-const resetData = () => {
-    return {
-        type: 'RESET'
-    }
-}
-
 const initData = (id) => {
+    console.log("init data");
     return {
         type: 'INIT',
         uid: id
@@ -16,6 +11,7 @@ const initData = (id) => {
 }
 
 const sendData = async (state) => {
+    console.log("sending state: ", state)
     const new_state = {...state, 
         date: new Date(),
         classes: state.classes.length > 0 ? state.classes : ['Normal']
@@ -36,7 +32,6 @@ const appendClass = (disease) => {
 }
 
 export const SubmitActions = {
-    resetData,
     initData,
     sendData,
     appendClass
