@@ -2,6 +2,12 @@ import axios from 'axios';
 
 const domain = `http://localhost:8000`;
 
+const resetData = () => {
+    return {
+        type: 'RESET'
+    }
+}
+
 const initData = (id) => {
     return {
         type: 'INIT',
@@ -14,11 +20,8 @@ const sendData = async (state) => {
         date: new Date(),
         classes: state.classes.length > 0 ? state.classes : ['Normal']
     }; // POST request with this new state
-    console.log("new state: ", new_state);
     const instancePath = domain + '/images/' + new_state.uid;
-    console.log("instance path: ", instancePath);
     const request = await axios.post(instancePath, new_state);
-    console.log("request: ", request);
     return {
         type: 'SUBMIT',
         value: new_state
@@ -33,6 +36,7 @@ const appendClass = (disease) => {
 }
 
 export const SubmitActions = {
+    resetData,
     initData,
     sendData,
     appendClass
