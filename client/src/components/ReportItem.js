@@ -8,7 +8,9 @@ const ReportItem = (props) => {
     const { item, toggle, appendDisease } = props;
     const toggleItem = () => {
         toggle(item.id)
-        appendDisease(item.id)
+        if (item.exists === false) {
+            appendDisease(item.id);
+        }
     };
     return (
         <Grid>

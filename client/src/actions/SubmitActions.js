@@ -15,7 +15,7 @@ const sendData = async (state) => {
         classes: state.classes.length > 0 ? state.classes : ['Normal']
     }; // POST request with this new state
     console.log("new state: ", new_state);
-    const instancePath = domain + '/' + new_state.uid;
+    const instancePath = domain + '/images/' + new_state.uid;
     console.log("instance path: ", instancePath);
     const request = await axios.post(instancePath, new_state);
     console.log("request: ", request);

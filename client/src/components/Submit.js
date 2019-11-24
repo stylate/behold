@@ -4,7 +4,10 @@ import { Button } from 'semantic-ui-react';
 export const Submit = (props) => {
     const { currentState, resetToggles, sendData, increment } = props;
     const executeSubmit = () => {
-        sendData(currentState);
+        const send = async () => {
+            await sendData(currentState);
+        }
+        send();
         resetToggles();
         increment();
     }

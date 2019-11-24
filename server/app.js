@@ -25,15 +25,8 @@ app.get("/images", (req, res, next) => {
     res.json(studies);
 });
 
-app.post("/images:id", (req, res, next) => {
+app.post("/images/:id", (req, res, next) => {
     const data = req.body;
-    res.send({
-        diseases: data.diseases,
-        timestamp: data.timestamp,
-        uid: data.uid
-    });
+    console.log("post request data: ", data);
+    res.send({data});
 })
-
-// do post request after building front-end
-
-
