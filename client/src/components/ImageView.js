@@ -40,7 +40,7 @@ const Image = styled.img`
     width: 125%;
 `;
 
-const ImageView = (props) => {
+export const ImageView = (props) => {
     const { item } = props;
     const absolutePath = domain + '/images/' + item.Filename;
     const meta = item.Metadata;
@@ -64,5 +64,3 @@ const ImageView = (props) => {
         </Wrapper>
     )
 };
-
-export default ImageView;

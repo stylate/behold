@@ -1,2 +1,3 @@
-export * from './Report';
+export * from './Diseases';
 export * from './Gallery';
+export * from './ImageView';

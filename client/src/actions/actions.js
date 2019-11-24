@@ -19,6 +19,7 @@ const setData = (data) => {
         data.map(item => (
             {[item]: item === 'Normal' ? true : false}))
     );
+    console.log("obj: ", obj)
     const objects = data.map((disease) => {
         return {
             id: disease,
