@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from '../actions/actions';
+import { GalleryActions } from '../actions';
 import { Grid } from 'semantic-ui-react';
 import { Gallery, ImageView } from '../components';
 
@@ -8,7 +8,7 @@ export const GalleryContainer = (props) => {
     const { resetToggles } = props;
     const dispatch = useDispatch();
     const imageState = useSelector(state => state.imageReducer);
-    const selectImage = (image) => dispatch(actions.selectImage(image));
+    const selectImage = (image) => dispatch(GalleryActions.selectImage(image));
 
     const images = imageState.images;
     const selectedImage = images[imageState.selected];

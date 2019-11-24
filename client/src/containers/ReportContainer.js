@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from '../actions/actions';
+import { ReportActions, GalleryActions } from '../actions';
 import { Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
 
@@ -34,26 +34,25 @@ export const ReportContainer = () => {
     const dispatch = useDispatch();
     useEffect( () => {
         const fetchData = async () => {
-            const response = await actions.fetchInitial();
+            const response = await ReportActions.fetchInitial();
             dispatch(response);
         }
 
         const fetchGallery = async () => {
-            const response = await actions.fetchGallery();
+            const response = await GalleryActions.fetchGallery();
             dispatch(response);
           }
         
         fetchData();
         fetchGallery();
     }, []);
-
-    const toggle = (disease) => dispatch(actions.toggleDisease(disease));
-    const resetToggles = () => dispatch(actions.resetToggles());
-    const nextImage = () => dispatch(actions.nextImage());
-    const sendData = (data) => dispatch(actions.sendData(data));
+    
+    const resetToggles = () => dispatch(ReportActions.resetToggles());
+    const nextImage = () => dispatch(GalleryActions.nextImage());
+    const sendData = (data) => dispatch(ReportActions.sendData(data));
 
     const imageName = imageState.images[imageState.selected];
-    const diseaseProps = { diseases, toggle };
+    const diseaseProps = { diseases };
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
     return (

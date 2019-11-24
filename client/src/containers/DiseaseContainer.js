@@ -1,9 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { Diseases } from '../components';
+import { ReportActions } from '../actions';
 
 export const DiseaseContainer = (props) => {
-    const { diseases, toggle } = props;
+    const { diseases } = props;
+    const dispatch = useDispatch();
+    const toggle = (disease) => dispatch(ReportActions.toggleDisease(disease));
     return (
         <Diseases
             diseases={diseases}
