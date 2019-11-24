@@ -4,12 +4,12 @@ import ReportItem from './ReportItem';
 // image + select state used for submit button
 
 export const Diseases = (props) => {
-    const { diseases, toggle } = props;
+    const { items, toggle, appendDisease } = props;
     return (
         <div>
-            {diseases &&
-                diseases.map((disease) => {
-                    return <ReportItem item={disease} toggle={toggle}/>;
+            {items &&
+                items.map((item) => {
+                    return <ReportItem item={item} toggle={toggle} appendDisease={appendDisease} />
             })}
         </div>
     )

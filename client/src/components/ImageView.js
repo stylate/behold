@@ -41,9 +41,10 @@ const Image = styled.img`
 `;
 
 export const ImageView = (props) => {
-    const { item } = props;
+    const { item, init } = props;
     const absolutePath = domain + '/images/' + item.Filename;
     const meta = item.Metadata;
+    init(meta['SOPInstanceUID']);
     return (
         <Wrapper>
             <Grid.Row>

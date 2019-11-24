@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { GalleryActions } from '../actions';
+import { GalleryActions, SubmitActions } from '../actions';
 import { Grid } from 'semantic-ui-react';
 import { Gallery, ImageView } from '../components';
 
@@ -8,7 +8,9 @@ export const GalleryContainer = (props) => {
     const { resetToggles } = props;
     const dispatch = useDispatch();
     const galleryState = useSelector(state => state.galleryReducer);
+
     const selectImage = (image) => dispatch(GalleryActions.selectImage(image));
+    const initData = (id) => dispatch(SubmitActions.initData(id));
 
     const images = galleryState.images;
     const selectedImage = images[galleryState.selected];
@@ -22,7 +24,7 @@ export const GalleryContainer = (props) => {
             </Grid.Column>
             <Grid.Column>
                 {selectedImage &&
-                    <ImageView item={selectedImage} />
+                    <ImageView item={selectedImage} init={initData} />
                 }
             </Grid.Column>
         </Grid>

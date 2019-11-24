@@ -11,9 +11,11 @@ const SubmitButton = styled.div`
 export const SubmitContainer = (props) => {
     const { resetToggles } = props;
     const dispatch = useDispatch();
+    const currentState = useSelector(state => state.submitReducer);
     const sendData = (data) => dispatch(SubmitActions.sendData(data));
     const increment = () => dispatch(GalleryActions.nextImage());
-    const submitProps = { resetToggles, sendData, increment }
+    console.log("currentState: ", currentState);
+    const submitProps = { currentState, resetToggles, sendData, increment }
     return (
         <SubmitButton>
             <Submit {...submitProps} />
