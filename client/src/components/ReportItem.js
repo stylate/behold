@@ -6,7 +6,7 @@ const Text = styled.p``;
 
 const ReportItem = (props) => {
     const { item, toggle } = props;
-    console.log("item: ", item);
+    console.log("item UPDATE: ", item);
     const toggleItem = () => {
         toggle(item.id)
     };

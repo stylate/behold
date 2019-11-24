@@ -24,10 +24,6 @@ const Header = styled.h2`
     font-size: 17px;
 `;
 
-const Submit = styled.div`
-    margin-top: 20px;
-`;
-
 export const ReportContainer = () => {
     const diseases = useSelector(state => state.reportReducer.options);
     const imageState = useSelector(state => state.imageReducer);
@@ -48,8 +44,6 @@ export const ReportContainer = () => {
     }, []);
     
     const resetToggles = () => dispatch(ReportActions.resetToggles());
-    const nextImage = () => dispatch(GalleryActions.nextImage());
-    const sendData = (data) => dispatch(ReportActions.sendData(data));
 
     const imageName = imageState.images[imageState.selected];
     const diseaseProps = { diseases };
@@ -63,6 +57,7 @@ export const ReportContainer = () => {
                     {imageName &&
                         <Header>Report for {imageName.Filename}</Header>}
                     <DiseaseContainer {...diseaseProps}/>
+                    <SubmitContainer {...submitProps}/>
                 </ReportBox>
             </Grid.Column>
         </Grid>
