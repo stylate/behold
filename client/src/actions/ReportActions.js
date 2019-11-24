@@ -19,7 +19,6 @@ const setData = (data) => {
         data.map(item => (
             {[item]: item === 'Normal' ? true : false}))
     );
-    console.log("obj: ", obj)
     const objects = data.map((disease) => {
         return {
             id: disease,
@@ -33,20 +32,13 @@ const setData = (data) => {
 };
 
 const resetToggles = () => {
-    console.log("resetting...");
     return ({
         type: "RESET"
     })
 }
 
-// submit
-const sendData = async (data) => {
-
-};
-
 export const ReportActions = {
     fetchInitial,
-    sendData,
     toggleDisease,
     resetToggles
 }; 

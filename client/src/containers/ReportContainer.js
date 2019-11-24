@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ReportActions, GalleryActions } from '../actions';
 import { Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 // containers
+import { CurrentContainer } from './CurrentContainer';
 import { DiseaseContainer } from './DiseaseContainer';
 import { SubmitContainer } from './SubmitContainer';
 import { GalleryContainer } from './GalleryContainer';
@@ -25,9 +26,8 @@ const Header = styled.h2`
 `;
 
 export const ReportContainer = () => {
-    const diseases = useSelector(state => state.reportReducer.options);
-    const imageState = useSelector(state => state.imageReducer);
     const dispatch = useDispatch();
+    // initialization
     useEffect( () => {
         const fetchData = async () => {
             const response = await ReportActions.fetchInitial();
@@ -44,9 +44,6 @@ export const ReportContainer = () => {
     }, []);
     
     const resetToggles = () => dispatch(ReportActions.resetToggles());
-
-    const imageName = imageState.images[imageState.selected];
-    const diseaseProps = { diseases };
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
     return (
@@ -54,9 +51,8 @@ export const ReportContainer = () => {
             <Grid.Column key={1} width={8}><GalleryContainer {...galleryProps}/></Grid.Column>
             <Grid.Column key={2} width={5}>
                 <ReportBox>
-                    {imageName &&
-                        <Header>Report for {imageName.Filename}</Header>}
-                    <DiseaseContainer {...diseaseProps}/>
+                    <CurrentContainer />
+                    <DiseaseContainer />
                     <SubmitContainer {...submitProps}/>
                 </ReportBox>
             </Grid.Column>

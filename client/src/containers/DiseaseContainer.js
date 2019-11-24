@@ -1,15 +1,15 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Diseases } from '../components';
 import { ReportActions } from '../actions';
 
-export const DiseaseContainer = (props) => {
-    const { diseases } = props;
+export const DiseaseContainer = () => {
+    const items = useSelector(state => state.reportReducer.options);
     const dispatch = useDispatch();
     const toggle = (disease) => dispatch(ReportActions.toggleDisease(disease));
     return (
         <Diseases
-            diseases={diseases}
+            diseases={items}
             toggle={toggle}
         />
     )

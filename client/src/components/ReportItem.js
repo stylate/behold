@@ -9,7 +9,6 @@ const ReportItem = (props) => {
     const toggleItem = () => {
         toggle(item.id)
     };
-    console.log("item UPDATE: ", item);
     return (
         <Grid>
             <Grid.Column key={1} width={9}><Text>{item.id}</Text></Grid.Column>
