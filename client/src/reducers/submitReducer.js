@@ -13,6 +13,11 @@ const submitReducer = (state = initialState, action) => {
                 uid: action.uid,
                 classes: action.classes
             }
+        case 'APPEND':
+            return {
+                ...state,
+                classes: state.classes.concat(action.value)
+            }
         default:
             return state
     }

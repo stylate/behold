@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { CurrentReport } from '../components';
 
 export const CurrentContainer = () => {
-    const imageState = useSelector(state => state.imageReducer);
-    const selectedImage = imageState.images[imageState.selected];
+    const galleryState = useSelector(state => state.galleryReducer);
+    const selectedImage = galleryState.images[galleryState.selected];
     return (
         <div>
             {selectedImage && <CurrentReport fileName={selectedImage.Filename}/>}

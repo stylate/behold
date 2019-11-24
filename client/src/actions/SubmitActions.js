@@ -13,7 +13,7 @@ const sendData = async (data) => {
 const appendClass = (disease) => {
     return {
         type: 'APPEND',
-        value: disease
+        value: [disease]
     }
 }
 

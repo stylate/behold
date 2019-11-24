@@ -21,9 +21,6 @@ const ReportBox = styled.div`
     padding: 16px;
     border-radius: 5px; 
 `;
-const Header = styled.h2`
-    font-size: 17px;
-`;
 
 export const ReportContainer = () => {
     const dispatch = useDispatch();

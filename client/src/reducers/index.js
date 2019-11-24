@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import reportReducer from './reportReducer';
 import submitReducer from './submitReducer';
-import imageReducer from './imageReducer';
+import galleryReducer from './galleryReducer';
 
 export default combineReducers({
     reportReducer,
-    imageReducer,
+    galleryReducer,
     submitReducer
 });

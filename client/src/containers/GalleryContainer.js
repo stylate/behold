@@ -7,11 +7,11 @@ import { Gallery, ImageView } from '../components';
 export const GalleryContainer = (props) => {
     const { resetToggles } = props;
     const dispatch = useDispatch();
-    const imageState = useSelector(state => state.imageReducer);
+    const galleryState = useSelector(state => state.galleryReducer);
     const selectImage = (image) => dispatch(GalleryActions.selectImage(image));
 
-    const images = imageState.images;
-    const selectedImage = images[imageState.selected];
+    const images = galleryState.images;
+    const selectedImage = images[galleryState.selected];
 
     const galleryProps = { images, selectImage, resetToggles };
 
