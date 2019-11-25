@@ -9,6 +9,7 @@ export const DiseaseContainer = () => {
     const toggle = (disease) => dispatch(ReportActions.toggleDisease(disease));
     const appendDisease = (disease) => dispatch(SubmitActions.appendClass(disease));
     const diseaseProps = { items, toggle, appendDisease };
+    console.log("render disease container")
     return (
         <Diseases {...diseaseProps} />
     )
