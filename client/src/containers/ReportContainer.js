@@ -43,6 +43,7 @@ export const ReportContainer = () => {
     const resetToggles = () => dispatch(ReportActions.resetToggles());
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
+    console.log("render report")
     return (
         <Grid>
             <Grid.Column key={1} width={8}><GalleryContainer {...galleryProps}/></Grid.Column>

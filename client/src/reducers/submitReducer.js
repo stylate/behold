@@ -1,7 +1,7 @@
 const initialState = {
     date: 0,
     uid: "",
-    classes: []
+    classes: new Set(['Normal'])
 }
 
 const submitReducer = (state = initialState, action) => {
@@ -22,7 +22,15 @@ const submitReducer = (state = initialState, action) => {
         case 'APPEND':
             return {
                 ...state,
-                classes: state.classes.concat(action.value)
+                classes: new Set([...state.classes, ...action.value])
+            }
+        case 'REMOVE':
+            let new_state = new Set([...state.classes])
+            new_state.delete(...action.value)
+            console.log("new state: ", new_state)
+            return {
+                ...state,
+                classes: new_state
             }
         default:
             return state

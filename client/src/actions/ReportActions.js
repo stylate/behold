@@ -19,12 +19,14 @@ const setData = (data) => {
         data.map(item => (
             {[item]: item === 'Normal' ? true : false}))
     );
+    console.log("obj: ", obj) // revisit this once done
     const objects = data.map((disease) => {
         return {
             id: disease,
             exists: disease === 'Normal' ? true : false
         };
     })
+    console.log("objects: ", objects)
     return ({
         type: "INITIAL",
         payload: objects

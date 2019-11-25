@@ -11,16 +11,24 @@ const initData = (id) => {
 }
 
 const sendData = async (state) => {
-    console.log("sending state: ", state)
     const new_state = {...state, 
         date: new Date(),
-        classes: state.classes.length > 0 ? state.classes : ['Normal']
+        classes: Array.from(state.classes)
     }; // POST request with this new state
+    console.log("sending state: ", new_state)
     const instancePath = domain + '/images/' + new_state.uid;
     const request = await axios.post(instancePath, new_state);
     return {
         type: 'SUBMIT',
         value: new_state
+    }
+}
+
+const updateClasses = (disease, exists) => {
+    if (exists) { // if class exists, then remove from class
+        return removeClass(disease);
+    } else {
+        return appendClass(disease);
     }
 }
 
@@ -31,8 +39,15 @@ const appendClass = (disease) => {
     }
 }
 
+const removeClass = (disease) => {
+    return {
+        type: 'REMOVE',
+        value: [disease]
+    }
+}
+
 export const SubmitActions = {
     initData,
     sendData,
-    appendClass
+    updateClasses
 };
