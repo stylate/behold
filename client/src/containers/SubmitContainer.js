@@ -16,7 +16,6 @@ export const SubmitContainer = (props) => {
     const sendData = async (data) => dispatch(await SubmitActions.sendData(data));
     const resetData = () => dispatch(SubmitActions.resetData());
     const increment = () => dispatch(GalleryActions.nextImage());
-
     const executeSubmit = () => {
         const send = async () => {
             await sendData(currentState);
@@ -27,7 +26,6 @@ export const SubmitContainer = (props) => {
         send();
     }
     const submitProps = { executeSubmit }
-
     console.log("render submit container")
     
     return (
