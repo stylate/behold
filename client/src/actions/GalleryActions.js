@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const domain = `http://localhost:8000`;
 
+/* Fetch image data for each file in /images. */
 const fetchGallery = async () => {
     const images_json = await axios(domain + `/images`); // get image json data
     return ({
@@ -11,6 +12,7 @@ const fetchGallery = async () => {
     })
 };
 
+/* Select an image based on user input. */
 const selectImage = (imageIndex) => {
     return ({
         type: 'SELECT',
@@ -18,6 +20,7 @@ const selectImage = (imageIndex) => {
     })
 };
 
+/* Increment the image index after submitting a report. */
 const nextImage = () => {
     return ({
         type: "INCREMENT"

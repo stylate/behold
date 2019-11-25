@@ -2,12 +2,14 @@ import axios from 'axios';
 
 const domain = `http://localhost:8000`;
 
+/* Return to the initial state for the submit reducer. */
 const resetData = () => {
     return {
         type: 'RESET'
     }
 }
 
+/* Initialize the state with the current image's ID. */
 const initData = (id) => {
     return {
         type: 'INIT',
@@ -15,6 +17,7 @@ const initData = (id) => {
     }
 }
 
+/* Perform a POST request to /images/:id while setting the state. */
 const sendData = async (state) => {
     const new_state = {...state, 
         date: new Date(),
@@ -28,6 +31,7 @@ const sendData = async (state) => {
     }
 }
 
+/* Remove or append a class to the state depending on the toggle. */
 const updateClasses = (disease, exists) => {
     if (exists) {
         return removeClass(disease);

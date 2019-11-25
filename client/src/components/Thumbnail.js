@@ -26,7 +26,7 @@ const Thumbnail = (props) => {
     };
     return (
         <ImageBox>
-                <CustomImage bordered src={absolutePath} onClick={selectImage} size='huge' />
+            <CustomImage bordered src={absolutePath} onClick={selectImage} size='huge' />
         </ImageBox>
     )
 }

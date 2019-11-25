@@ -20,6 +20,7 @@ const MetaBox = styled.div`
 `;
 
 const Header = styled.h2`
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
 `;
 
@@ -32,6 +33,7 @@ const List = styled.ul`
 
 const ListElement = styled.li`
     list-style: none;
+    font-family: "Source Sans Pro", sans-serif;
     padding: 1px;
 `;
 
