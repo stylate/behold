@@ -9,7 +9,7 @@ export const Diseases = (props) => {
         <div>
             {items &&
                 items.map((item) => {
-                    return <ReportItem item={item} toggle={toggle} updateClasses={updateClasses} />
+                    return <ReportItem key={item.id} item={item} toggle={toggle} updateClasses={updateClasses} />
             })}
         </div>
     )

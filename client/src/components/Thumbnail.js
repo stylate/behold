@@ -10,9 +10,15 @@ const ImageBox = styled.div`
 `;
 
 const CustomImage = styled(Image)`
-    &:hover {
-        background-color: teal !important;
+    &:hover .overlay {
+        opacity: 0.3;
     }
+`;
+
+const Overlay = styled.div`
+    opacity: 1;
+    transition: .5s ease;
+    background-color: teal;
 `;
 
 const Thumbnail = (props) => {
@@ -24,7 +30,9 @@ const Thumbnail = (props) => {
     };
     return (
         <ImageBox>
-            <CustomImage bordered src={absolutePath} onClick={selectImage} size='huge' />
+            <Overlay>
+                <CustomImage bordered src={absolutePath} onClick={selectImage} size='huge' />
+            </Overlay>
         </ImageBox>
     )
 }

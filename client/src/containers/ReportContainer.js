@@ -38,7 +38,7 @@ export const ReportContainer = () => {
         
         fetchData();
         fetchGallery();
-    }, []);
+    }, [dispatch]);
     
     const resetToggles = () => dispatch(ReportActions.resetToggles());
     const galleryProps = { resetToggles };

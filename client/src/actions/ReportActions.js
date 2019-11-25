@@ -15,10 +15,6 @@ const toggleDisease = (disease) => {
 }
 
 const setData = (data) => {
-    const obj = Object.assign({}, 
-        data.map(item => (
-            {[item]: item === 'Normal' ? true : false}))
-    );
     const objects = data.map((disease) => {
         return {
             id: disease,

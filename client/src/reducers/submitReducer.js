@@ -26,7 +26,7 @@ const submitReducer = (state = initialState, action) => {
                 classes: new Set([...state.classes, ...action.value])
             }
         case 'REMOVE':
-            let new_state = new Set([...state. classes])
+            let new_state = new Set([...state. classes]);
             new_state.delete(...action.value)
             return {
                 ...state,

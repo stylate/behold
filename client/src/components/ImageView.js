@@ -56,7 +56,7 @@ export const ImageView = (props) => {
                     <List>
                         {meta &&
                             Object.keys(meta).map((key, i) => {
-                                return <ListElement>{key}: {meta[key]}</ListElement>
+                                return <ListElement key={key}>{key}: {meta[key]}</ListElement>
                             })
                         }
                     </List>

@@ -10,8 +10,8 @@ export const Gallery = (props) => {
             {images &&
                 Object.keys(images).map((key) => {
                     return (
-                        <Grid.Row>
-                            <Thumbnail index={key} item={images[key]} select={selectImage} reset={resetToggles}/>
+                        <Grid.Row key={parseInt(key)}>
+                            <Thumbnail key={parseInt(key)} index={parseInt(key)} item={images[key]} select={selectImage} reset={resetToggles}/>
                         </Grid.Row>
                     );
             })}
