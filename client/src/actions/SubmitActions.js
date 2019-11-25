@@ -19,8 +19,7 @@ const sendData = async (state) => {
     const instancePath = domain + '/images/' + new_state.uid;
     const request = await axios.post(instancePath, new_state);
     return {
-        type: 'SUBMIT',
-        value: new_state
+        type: 'RESET'
     }
 }
 

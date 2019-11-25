@@ -5,6 +5,7 @@ import ReportItem from './ReportItem';
 
 export const Diseases = (props) => {
     const { items, classes, toggle, updateClasses } = props;
+    console.log("load disease component")
     return (
         <div>
             {items &&

@@ -15,6 +15,8 @@ export const DiseaseContainer = () => {
     console.log("render disease container")
     console.log("disease container classes: ", classes)
     return (
-        <Diseases {...diseaseProps} />
+        <div>
+            {items && <Diseases {...diseaseProps} />}
+        </div>
     )
 }
