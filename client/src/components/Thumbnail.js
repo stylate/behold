@@ -10,15 +10,15 @@ const ImageBox = styled.div`
 `;
 
 const CustomImage = styled(Image)`
-    &:hover .overlay {
+    &:hover {
+        transition: .3s ease;
         opacity: 0.3;
     }
 `;
 
 const Overlay = styled.div`
     opacity: 1;
-    transition: .5s ease;
-    background-color: teal;
+    background-color: teal !important;
 `;
 
 const Thumbnail = (props) => {
