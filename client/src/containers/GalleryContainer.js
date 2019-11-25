@@ -14,7 +14,6 @@ export const GalleryContainer = (props) => {
 
     const images = galleryState.images;
     const selectedImage = images[galleryState.selected];
-
     const galleryProps = { images, selectImage, resetToggles };
     
     return (
