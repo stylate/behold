@@ -5,12 +5,11 @@ import { Checkbox, Grid } from 'semantic-ui-react'
 const Text = styled.p``;
 
 const ReportItem = (props) => {
-    const { item, toggle, appendDisease } = props;
+    const { item, classes, toggle, updateClasses } = props;
     const toggleItem = () => {
+        // check current
         toggle(item.id)
-        if (item.exists === false) {
-            appendDisease(item.id);
-        }
+        updateClasses(item.id, item.exists);
     };
     return (
         <Grid>

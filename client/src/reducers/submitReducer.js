@@ -9,8 +9,9 @@ const submitReducer = (state = initialState, action) => {
         case 'RESET':
             return initialState;
         case 'INIT':
+            console.log("initial state: ", initialState);
             return {
-                ...state,
+                ...initialState,
                 uid: action.uid
             }
         case 'SUBMIT':
@@ -24,6 +25,14 @@ const submitReducer = (state = initialState, action) => {
             return {
                 ...state,
                 classes: new Set([...state.classes, ...action.value])
+            }
+        case 'REMOVE':
+            let new_state = new Set([...state.classes])
+            new_state.delete(...action.value)
+            console.log("new state: ", new_state)
+            return {
+                ...state,
+                classes: new_state
             }
         case 'DELETE':
 

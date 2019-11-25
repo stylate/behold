@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReportActions, GalleryActions } from '../actions';
 import { Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
@@ -39,21 +39,28 @@ export const ReportContainer = () => {
         fetchData();
         fetchGallery();
     }, []);
+
+    const items = useSelector(state => state.reportReducer.options);
+    const galleryState = useSelector(state => state.galleryReducer);
     
     const resetToggles = () => dispatch(ReportActions.resetToggles());
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
     console.log("render report container")
     return (
-        <Grid>
-            <Grid.Column key={1} width={8}><GalleryContainer {...galleryProps}/></Grid.Column>
-            <Grid.Column key={2} width={5}>
-                <ReportBox>
-                    <CurrentContainer />
-                    <DiseaseContainer />
-                    <SubmitContainer {...submitProps}/>
-                </ReportBox>
-            </Grid.Column>
-        </Grid>
+        <div>
+            {items && Object.keys(galleryState.images).length > 0 &&
+                <Grid>
+                    <Grid.Column key={1} width={8}><GalleryContainer {...galleryProps}/></Grid.Column>
+                    <Grid.Column key={2} width={5}>
+                        <ReportBox>
+                            <CurrentContainer />
+                            <DiseaseContainer />
+                            <SubmitContainer {...submitProps}/>
+                        </ReportBox>
+                    </Grid.Column>
+                </Grid>
+            }
+        </div>
     )
 }

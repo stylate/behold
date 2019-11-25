@@ -2,13 +2,8 @@ import axios from 'axios';
 
 const domain = `http://localhost:8000`;
 
-const resetData = () => {
-    return {
-        type: 'RESET'
-    }
-}
-
 const initData = (id) => {
+    console.log("init data");
     return {
         type: 'INIT',
         uid: id
@@ -24,8 +19,15 @@ const sendData = async (state) => {
     const instancePath = domain + '/images/' + new_state.uid;
     const request = await axios.post(instancePath, new_state);
     return {
-        type: 'SUBMIT',
-        value: new_state
+        type: 'RESET'
+    }
+}
+
+const updateClasses = (disease, exists) => {
+    if (exists) { // if class exists, then remove from class
+        return removeClass(disease);
+    } else {
+        return appendClass(disease);
     }
 }
 
@@ -36,9 +38,15 @@ const appendClass = (disease) => {
     }
 }
 
+const removeClass = (disease) => {
+    return {
+        type: 'REMOVE',
+        value: [disease]
+    }
+}
+
 export const SubmitActions = {
-    resetData,
     initData,
     sendData,
-    appendClass
+    updateClasses
 };
