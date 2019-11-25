@@ -7,8 +7,8 @@ export const DiseaseContainer = () => {
     const items = useSelector(state => state.reportReducer.options);
     const dispatch = useDispatch();
     const toggle = (disease) => dispatch(ReportActions.toggleDisease(disease));
-    const appendDisease = (disease) => dispatch(SubmitActions.appendClass(disease));
-    const diseaseProps = { items, toggle, appendDisease };
+    const updateClasses = (disease, exists) => dispatch(SubmitActions.updateClasses(disease, exists));
+    const diseaseProps = { items, toggle, updateClasses };
     console.log("render disease container")
     return (
         <Diseases {...diseaseProps} />

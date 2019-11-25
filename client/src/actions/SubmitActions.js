@@ -29,9 +29,24 @@ const sendData = async (state) => {
     }
 }
 
+const updateClasses = (disease, exists) => {
+    if (exists) {
+        return removeClass(disease);
+    } else {
+        return appendClass(disease);
+    }
+}
+
 const appendClass = (disease) => {
     return {
         type: 'APPEND',
+        value: [disease]
+    }
+}
+
+const removeClass = (disease) => {
+    return {
+        type: 'REMOVE',
         value: [disease]
     }
 }
@@ -40,5 +55,5 @@ export const SubmitActions = {
     resetData,
     initData,
     sendData,
-    appendClass
+    updateClasses
 };

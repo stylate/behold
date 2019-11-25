@@ -25,8 +25,13 @@ const submitReducer = (state = initialState, action) => {
                 ...state,
                 classes: new Set([...state.classes, ...action.value])
             }
-        case 'DELETE':
-
+        case 'REMOVE':
+            let new_state = new Set([...state. classes])
+            new_state.delete(...action.value)
+            return {
+                ...state,
+                classes: new_state
+            }
         default:
             return state
     }
