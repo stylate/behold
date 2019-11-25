@@ -26,7 +26,6 @@ export const SubmitContainer = (props) => {
         send();
     }
     const submitProps = { executeSubmit }
-    console.log("render submit container")
     
     return (
         <SubmitButton>

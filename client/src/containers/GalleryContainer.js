@@ -17,10 +17,9 @@ export const GalleryContainer = (props) => {
 
     const galleryProps = { images, selectImage, resetToggles };
     
-    console.log("render gallery container")
     return (
         <Grid columns={2} relaxed="very">
-            <Grid.Column width={3}>
+            <Grid.Column width={4}>
                 <Gallery {...galleryProps}/>
             </Grid.Column>
             <Grid.Column>

@@ -12,7 +12,7 @@ import { GalleryContainer } from './GalleryContainer';
 
 const ReportBox = styled.div`
     margin-top: 5%;
-    margin-left: -16%;
+    margin-left: -10%;
     width: 40%;
     position: relative;
     display: flex;
@@ -43,7 +43,6 @@ export const ReportContainer = () => {
     const resetToggles = () => dispatch(ReportActions.resetToggles());
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
-    console.log("render report container")
     return (
         <Grid>
             <Grid.Column key={1} width={8}><GalleryContainer {...galleryProps}/></Grid.Column>

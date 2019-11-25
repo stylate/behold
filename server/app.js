@@ -27,6 +27,6 @@ app.get("/images", (req, res, next) => {
 
 app.post("/images/:id", (req, res, next) => {
     const data = req.body;
-    console.log("post request data: ", data);
+    console.log(data);
     res.send({data});
 })

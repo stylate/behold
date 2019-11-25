@@ -5,8 +5,14 @@ import { Image } from 'semantic-ui-react';
 const domain = `http://localhost:8000`;
 
 const ImageBox = styled.div`
-    margin-top: 30%;
+    margin-top: 10%;
     padding-left: 30%;
+`;
+
+const CustomImage = styled(Image)`
+    &:hover {
+        background-color: teal !important;
+    }
 `;
 
 const Thumbnail = (props) => {
@@ -18,7 +24,7 @@ const Thumbnail = (props) => {
     };
     return (
         <ImageBox>
-            <Image src={absolutePath} onClick={selectImage} size='medium' />
+            <CustomImage bordered src={absolutePath} onClick={selectImage} size='huge' />
         </ImageBox>
     )
 }
