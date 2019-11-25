@@ -34,6 +34,8 @@ const submitReducer = (state = initialState, action) => {
                 ...state,
                 classes: new_state
             }
+        case 'DELETE':
+
         default:
             return state
     }

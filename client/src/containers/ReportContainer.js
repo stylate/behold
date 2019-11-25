@@ -46,7 +46,7 @@ export const ReportContainer = () => {
     const resetToggles = () => dispatch(ReportActions.resetToggles());
     const galleryProps = { resetToggles };
     const submitProps = { resetToggles };
-    console.log("render report")
+    console.log("render report container")
     return (
         <div>
             {items && Object.keys(galleryState.images).length > 0 &&
